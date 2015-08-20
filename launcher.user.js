@@ -2,7 +2,7 @@
 // @name        RednelssLauncher
 // @namespace   RednelssLauncher
 // @include     http://agar.io/*
-// @version     5.03
+// @version     5.03 
 // @grant       none
 // @author      youtube.com/RednelssPlay
 // ==/UserScript==
@@ -20,7 +20,7 @@ Array.prototype.peek = function() {
 var sha = "ebe77da9d35c0366509ec295407612c100ba3cea";
 function getLatestCommit() {
     window.jQuery.ajax({
-        url: "https://api.github.com/repos/rednelss/Agar.io-bot/git/refs/heads/master",
+        url: "https://api.github.com/repos/upsoftt/Agar.io-bot/git/refs/heads/master",
         cache: false,
         dataType: "jsonp"
     }).done(function(data) {
@@ -40,7 +40,7 @@ function getLatestCommit() {
             window.jQuery("#" + prefix + "Dialog").show();
         }
 
-        window.jQuery.get('https://raw.githubusercontent.com/rednelss/Agar.io-bot/master/launcher.user.js?' + Math.floor((Math.random() * 1000000) + 1), function(data) {
+        window.jQuery.get('https://raw.githubusercontent.com/upsoftt/Agar.io-bot/master/launcher.user.js?' + Math.floor((Math.random() * 1000000) + 1), function(data) {
             var latestVersion = data.replace(/(\r\n|\n|\r)/gm, "");
             latestVersion = latestVersion.substring(latestVersion.indexOf("// @version") + 11, latestVersion.indexOf("// @grant"));
 
@@ -48,7 +48,7 @@ function getLatestCommit() {
             var myVersion = parseFloat(rednelssLauncherVersion + 0.0000);
 
             if (latestVersion > myVersion) {
-                update("rednelssLauncher", "launcher.user.js", "https://github.com/rednelss/Agar.io-bot/blob/" + sha + "/launcher.user.js/");
+                update("rednelssLauncher", "launcher.user.js", "https://github.com/upsoftt/Agar.io-bot/blob/" + sha + "/launcher.user.js/");
             }
             console.log('Current launcher.user.js Version: ' + myVersion + " on Github: " + latestVersion);
         });
@@ -1290,8 +1290,8 @@ console.log("Running Bot Launcher!");
             var za, f, G, m, r, X = null,
 
                 //UPDATE
-                toggle = false,
-                toggleDraw = false,
+                toggle = True,
+                toggleDraw = True,
                 toggleFollow = false,
                 tempPoint = [0, 0, 1],
                 dPoints = [],
@@ -1299,7 +1299,7 @@ console.log("Running Bot Launcher!");
                 dArc = [],
                 dText = [],
                 lines = [],
-                names = ["vk.com/botagar"],
+                names = [" "],
                 originalName = names[Math.floor(Math.random() * names.length)],
                 sessionScore = 0,
                 serverIP = "",
@@ -2360,12 +2360,14 @@ window.refreshTwitch = function() {
             window.ignoreStream = false;
         } else {
             //console.log("therednelss is online!");
-            if (!window.ignoreStream) {
-                window.setMessage(["twitch.tv/therednelss is online right now!", "Click the screen to open the stream!", "Press E to ignore."]);
-                window.onmouseup = function() {
-                    window.open("http://www.twitch.tv/therednelss");
-                };
-            }
+            //if (!window.ignoreStream) 
+            //    {
+            //    window.setMessage(["twitch.tv/therednelss is online right now!", "Click the screen to open the stream!", "Press E to ignore."]);
+            //    window.onmouseup = function() 
+            //        {
+            //       window.open("http://www.twitch.tv/therednelss");
+            //        };
+            //    }
         }
     }).fail(function() {});
 }
